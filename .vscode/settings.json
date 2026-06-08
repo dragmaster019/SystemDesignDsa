@@ -2,6 +2,7 @@
     "C_Cpp.errorSquiggles": "disabled",
     "java.project.sourcePaths": [
         "RealWorldLld/DelieverySystem.demo",
-        "RealWorldLld/parkingLort"
+        "RealWorldLld/parkingLort",
+        "RealWorldLld/CabBooking"
     ]
 }
