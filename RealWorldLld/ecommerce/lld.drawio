@@ -1,0 +1,92 @@
+<mxfile host="65bd71144e">
+    <diagram id="tiTP-Qy7OMpRrk4aLApv" name="Page-1">
+        <mxGraphModel dx="1536" dy="670" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="User&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;--userId&lt;/div&gt;&lt;div&gt;--name&lt;/div&gt;&lt;div&gt;--phoneNumber&lt;/div&gt;&lt;div&gt;-shipping address(map it with userId)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fontStyle=1;align=left;verticalAlign=top;" vertex="1" parent="1">
+                    <mxGeometry x="10" y="8.75" width="150" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="160" y="84.5" as="sourcePoint"/>
+                        <mxPoint x="240" y="84.5" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4" value="Dealer&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;--dealerId&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;--companyName&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;--products(ArrayList &amp;lt;String&amp;gt;)&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=center;verticalAlign=top;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="15" width="150" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Delievery&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;--delieveryid&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: rgb(63, 63, 63);&quot;&gt;- customerId&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: rgb(63, 63, 63);&quot;&gt;-dealerId&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: rgb(63, 63, 63);&quot;&gt;-product&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=center;verticalAlign=top;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="470" y="7.5" width="152.5" height="152.5" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="387.02" y="88.76" as="sourcePoint"/>
+                        <mxPoint x="470" y="89" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="10" value="-ViewParcel&lt;div&gt;-ChangeDeliveryStatus as Delievered&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" vertex="1" parent="1">
+                    <mxGeometry x="471.25" y="160" width="150" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="&lt;div&gt;---addorderToCart&lt;/div&gt;&lt;div&gt;--RemoveOrderToCart&lt;/div&gt;&lt;div&gt;--changeDeliveryStatus as Ordered&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" vertex="1" parent="1">
+                    <mxGeometry x="10" y="160" width="150" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="--viewOrder&lt;div&gt;--checkAvailability&lt;/div&gt;&lt;div&gt;&lt;div&gt;--changeDelieveryStatus as Shipped&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;-&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="160" width="150" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="" style="endArrow=none;html=1;entryX=1.02;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="2">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="10" y="40" as="sourcePoint"/>
+                        <mxPoint x="130" y="40" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="15" value="" style="endArrow=none;html=1;" edge="1" parent="1" target="4">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="240" y="40" as="sourcePoint"/>
+                        <mxPoint x="330" y="40" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="390" y="40"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="16" value="" style="endArrow=none;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="470" y="30" as="sourcePoint"/>
+                        <mxPoint x="620" y="30" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="17" value="&lt;div&gt;Product&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;--productId&lt;/div&gt;&lt;div&gt;--isAvailable&lt;/div&gt;&lt;div&gt;--cost&lt;/div&gt;&lt;div&gt;-dealer id(map it with dealer with dealer having which product)&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;verticalAlign=top;" vertex="1" parent="1">
+                    <mxGeometry x="260" y="380" width="150" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="" style="endArrow=classic;html=1;entryX=0.553;entryY=1.036;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.42;exitY=-0.013;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="17" target="12">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="330" y="380" as="sourcePoint"/>
+                        <mxPoint x="380" y="330" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="19" value="&lt;div&gt;Cart&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;TotalPrice&lt;/div&gt;&lt;div&gt;quantity&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;verticalAlign=top;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="370" width="160" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="" style="endArrow=classic;html=1;entryX=-0.027;entryY=0.327;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="17">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="430" as="sourcePoint"/>
+                        <mxPoint x="250" y="380" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="22" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="110" y="270" as="sourcePoint"/>
+                        <mxPoint x="110" y="360" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="23" value="&lt;font size=&quot;1&quot;&gt;So, Now discuss the data structure, userMap which will be a hashMap have user Information, we can add remove update read from that,Similar we have&lt;/font&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="600" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="So when Delievery man see where to deliever the order he will fetch UserMap.address(1)&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;first user will see, products which is ArrayList I think arrayList would be better for like searching and get as it will take o(n) time, but gettng product o(1) I guess(&lt;/font&gt;&lt;span style=&quot;background-color: transparent; color: rgb(63, 63, 63);&quot;&gt;this products will map with dealerId through dealerMap)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: rgb(63, 63, 63);&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: rgb(63, 63, 63);&quot;&gt;-then userDo addtoCart of product x, set quantity how many it is and then cart will show totalPrice user then order it so delieveryStatus changes to ORDERED.(so cart is something like FIFO like ordered i want then cart details will sent it to dealer correct?)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" vertex="1" parent="1">
+                    <mxGeometry x="110" y="660" width="470" height="270" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
