@@ -5,6 +5,21 @@ DB/S3 → response — and name the pattern at each step.
 
 ---
 
+From the doc — API Gateway "throttles, applies CORS" before invoking your Lambda. Two separate things:
+
+Throttling — API Gateway limits how many requests per second it'll accept, both account-wide and per-route. If traffic exceeds the limit, it rejects extra requests with 429 Too Many Requests before your Lambda ever runs.
+
+Protects your backend/DB from being overwhelmed by a traffic spike or a buggy/malicious client hammering the endpoint
+Configured as rate (steady requests/sec allowed) and burst (how many requests can spike momentarily above that rate)
+You can set it globally for the API, or override per-route (e.g. a heavy report-generation endpoint gets a lower limit than a cheap read endpoint)
+CORS (Cross-Origin Resource Sharing) — a browser security rule: by default, JS running on https://app.example.com is blocked from calling an API on a different origin like https://devapi.arisinvesting.com, unless that API explicitly says it's allowed.
+
+API Gateway handles this by responding to the browser's preflight OPTIONS request with headers like Access-Control-Allow-Origin, Access-Control-Allow-Methods, Access-Control-Allow-Headers
+You saw this directly in your own serverless YAML — cors: true on each http event is what tells API Gateway to auto-generate those headers and handle the OPTIONS preflight, so you don't write that logic in the Lambda itself
+Interview one-liner: "Throttling protects the backend from too much traffic; CORS is what lets the browser make the cross-origin call at all in the first place — they're unrelated concerns that both happen to be handled at the API Gateway layer before my Lambda code runs."
+
+
+
 ## PART A — How a request actually flows (the "whole UI and flow" story)
 
 ```
@@ -19,7 +34,7 @@ AWS API Gateway  (HTTP API or REST API)
    |  - throttles, applies CORS
    v
 AWS Lambda (Node.js handler)
-   |  handler -> input validation -> preProcessor -> processor -> response
+   |  handler -> input validation -> preProcessor -> processor -> response 
    v
 MySQL/DynamoDB (read replica) or S3
    v

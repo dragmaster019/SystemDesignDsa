@@ -85,7 +85,7 @@ try {
 
 **Rule:** create custom exceptions for business errors (`InsufficientStockException`,
 `UserNotFoundException`) instead of throwing generic `RuntimeException` — it makes the
-calling code's `catch` blocks meaningful.
+calling code's `catch` blocks meaningful
 
 ---
 
