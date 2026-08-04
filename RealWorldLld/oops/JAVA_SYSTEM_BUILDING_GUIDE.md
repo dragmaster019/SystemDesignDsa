@@ -63,15 +63,15 @@ class InsufficientStockException extends RuntimeException {
 }
 
 class InventoryService {
-    private final Map<String, Integer> stock = new HashMap<>();
+    private final Map<String, Integer> stock = new HashMap<>(); //40
 
-    public void reserve(String productId, int qty) {
+    public void reserve(String productId, int qty) { // 1- 5 x headphone 5 piece 
         int available = stock.getOrDefault(productId, 0);
-        if (qty > available) {
+        if (qty > available) { // 5 > 40
             throw new InsufficientStockException(
                 productId + " has only " + available + " left, requested " + qty);
         }
-        stock.put(productId, available - qty);
+        stock.put(productId, available - qty); // 40 - 5
     }
 }
 
