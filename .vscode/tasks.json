@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "LeetCode: Insert Problem into Current File",
+      "type": "shell",
+      "command": "node",
+      "args": [
+        "${workspaceFolder}/RealWorldLld/mockTest/mock02/scripts/insert-leetcode.js",
+        "${file}",
+        "${input:leetcodeNumber}"
+      ],
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared",
+        "showReuseMessage": false
+      },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "leetcodeNumber",
+      "type": "promptString",
+      "description": "LeetCode problem number"
+    }
+  ]
+}
