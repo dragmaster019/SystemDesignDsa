@@ -37,4 +37,7 @@ public:
 
     cout << "The answer is" << " " << obj.result(nums,k) << endl;
 
+    //Time: first loop fills the initial window → O(k). Second loop slides across the rest → O(n-k). Total O(k) + O(n-k) = O(n) — one pass over the array overall (the sliding window trick avoids recomputing each window sum from scratch, which would've been O(n·k)).
+    //Space: O(1) — just scalars (ans, maxi, j), no auxiliary array or map that scales with input.
+
 }

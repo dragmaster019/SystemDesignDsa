@@ -9,7 +9,7 @@ This covers the rest, in the order you'll actually need it.
 
 ```java
 List<String> names = new ArrayList<>();   // ordered, allows duplicates, index access
-Set<String> uniqueIds = new HashSet<>();  // no duplicates, no order guarantee
+Set<String> un iqueIds = new HashSet<>();  // no duplicates, no order guarantee
 Map<String, Integer> stock = new HashMap<>(); // key -> value lookup
 Queue<String> jobs = new LinkedList<>();  // FIFO — process in order added
 
