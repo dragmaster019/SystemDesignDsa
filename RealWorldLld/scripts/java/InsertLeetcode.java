@@ -7,6 +7,8 @@ import java.util.Map;
  *
  * Usage: java InsertLeetcode <targetFile> <problemNumber>
  */
+
+//cd RealWorldLld/mockTest/mock02/scripts/java
 public class InsertLeetcode {
     public static void main(String[] args) throws Exception {
         if (args.length < 2) {

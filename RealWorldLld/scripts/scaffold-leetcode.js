@@ -1,9 +1,12 @@
 #!/usr/bin/env node
-// Scaffolds a LeetCode problem: creates <problemsDir>/<number>/ containing
-// <number>.java, <number>.cpp, <number>.js, <number>.py, each with the
-// problem statement inserted as a comment block.
+// Scaffolds one or more LeetCode problems: creates <problemsDir>/<number>/
+// containing <number>.java, <number>.cpp, <number>.js, <number>.py, each
+// with the problem statement inserted as a comment block.
 //
-// Usage: node scaffold-leetcode.js <problemNumber> [problemsDir]
+// Usage: node scaffold-leetcode.js <problemNumber>[,<problemNumber>...] [problemsDir]
+//node RealWorldLld/scripts/scaffold-leetcode.js 42
+//node RealWorldLld/scripts/scaffold-leetcode.js 42,209,76
+
 
 const fs = require("fs");
 const path = require("path");
@@ -39,16 +42,7 @@ function writeCommentBlock(filePath, commentBlock) {
   fs.writeFileSync(filePath, updated, "utf8");
 }
 
-async function main() {
-  const [, , problemNumber, problemsDirArg] = process.argv;
-
-  if (!problemNumber) {
-    console.error("Usage: node scaffold-leetcode.js <problemNumber> [problemsDir]");
-    process.exit(1);
-  }
-
-  const problemsDir =
-    problemsDirArg || path.resolve(__dirname, "..");
+async function scaffoldOne(problemNumber, problemsDir) {
   const folder = path.join(problemsDir, String(problemNumber));
 
   fs.mkdirSync(folder, { recursive: true });
@@ -65,6 +59,33 @@ async function main() {
   console.log(
     `Created ${folder}/ with ${problemNumber}${LANGUAGE_EXTS.join(`, ${problemNumber}`)} for "${problem.title}"`
   );
+}
+
+async function main() {
+  const [, , problemNumbersArg, problemsDirArg] = process.argv;
+
+  if (!problemNumbersArg) {
+    console.error("Usage: node scaffold-leetcode.js <problemNumber>[,<problemNumber>...] [problemsDir]");
+    process.exit(1);
+  }
+
+  const problemsDir = problemsDirArg || path.resolve(__dirname, "..");
+  const problemNumbers = problemNumbersArg
+    .split(",")
+    .map((n) => n.trim())
+    .filter(Boolean);
+
+  let hadError = false;
+  for (const problemNumber of problemNumbers) {
+    try {
+      await scaffoldOne(problemNumber, problemsDir);
+    } catch (err) {
+      hadError = true;
+      console.error(`${problemNumber}: ${err.message}`);
+    }
+  }
+
+  if (hadError) process.exit(1);
 }
 
 main().catch((err) => {
