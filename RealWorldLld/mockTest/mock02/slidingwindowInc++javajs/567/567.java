@@ -30,7 +30,7 @@ class Solution{
 
     public static boolean isMatch(int[] freq1, int[] freq2){
 
-        for(int i =0; i<26; i++){
+        for(int i = 0; i<26; i++){
             if(freq1[i]!= freq2[i]) return false;
         }
         return true;
@@ -65,9 +65,6 @@ class Solution{
         }
 
         return false;
-
-        
-
 
     }
 

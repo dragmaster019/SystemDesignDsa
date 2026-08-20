@@ -40,3 +40,41 @@
 //
 // - 0 <= fruits[i] < fruits.length
 // LEETCODE-PROBLEM-END
+
+import java.util.*;
+
+class Solution{
+
+    public static int result(int[] fruits){
+
+        HashMap<Integer, Integer> mp = new HashMap<>();
+
+        int left = 0;
+        int maxPick = 0;
+
+        for (int right = 0; right < fruits.length; right++){
+
+            mp.put(fruits[right], mp.getOrDefault(fruits[right], 0) + 1);
+
+            while (mp.size() > 2) {
+                int leftType = fruits[left];
+                mp.put(leftType, mp.get(leftType) - 1);
+                if (mp.get(leftType) == 0) {
+                    mp.remove(leftType);
+                }
+                left++;
+            }
+
+            maxPick = Math.max(maxPick, right - left + 1);
+        }
+
+        return maxPick;
+    }
+
+    public static void main(String[] args){
+
+        int[] fruits = {1,2,3,2,2};
+
+        System.out.println(Solution.result(fruits));
+    }
+}
