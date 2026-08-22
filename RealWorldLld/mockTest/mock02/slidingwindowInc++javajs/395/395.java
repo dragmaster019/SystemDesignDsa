@@ -51,21 +51,6 @@ class Solution {
                     countAtLeastK++;
                 }
 
-                while (uniqueCount > uniqueTarget) {
-                    char leftChar = s.charAt(left);
-                    if (freq[leftChar - 'a'] == k) {
-                        countAtLeastK--;
-                    }
-                    freq[leftChar - 'a']--;
-                    if (freq[leftChar - 'a'] == 0) {
-                        uniqueCount--;
-                    }
-                    left++;
-                }
-
-                if (uniqueCount == uniqueTarget && uniqueCount == countAtLeastK) {
-                    maxLength = Math.max(maxLength, right - left + 1);
-                }
             }
         }
 
