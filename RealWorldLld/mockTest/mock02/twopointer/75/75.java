@@ -38,3 +38,31 @@
 //
 // Follow up: Could you come up with a one-pass algorithm using only constant extra space?
 // LEETCODE-PROBLEM-END
+
+class Solution{
+
+    public static int[] result(int [] nums){
+
+        for (int pass = 0; pass < nums.length; pass++) {
+            for (int i = 1; i < nums.length - pass; i++) {
+                if (nums[i - 1] > nums[i]) {
+                    swap(nums, i - 1, i);
+                }
+            }
+        }
+
+        return nums;
+    }
+
+    private static void swap(int[] nums, int a, int b) {
+        int temp = nums[a];
+        nums[a] = nums[b];
+        nums[b] = temp;
+    }
+
+public static void main(String[] args){
+    int[] nums = {2,0,2,1,1,0};
+
+    System.out.println(java.util.Arrays.toString(Solution.result(nums)));
+}
+}
