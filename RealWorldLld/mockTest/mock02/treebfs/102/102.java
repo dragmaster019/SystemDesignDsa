@@ -25,3 +25,85 @@
 //
 // - -1000 <= Node.val <= 1000
 // LEETCODE-PROBLEM-END
+
+import java.util.*;
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode() {}
+
+    TreeNode(int val) {
+        this.val = val;
+    }
+
+    TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+}
+
+
+class Solution {
+    public List<List<Integer>> levelOrder(TreeNode root) {
+
+        List<List<Integer>> result = new ArrayList<>();
+
+        if(root == null) return result;
+
+        Queue<TreeNode> q = new ArrayDeque<>();
+
+        q.offer(root);
+
+        while(!q.isEmpty()){
+
+            int size = q.size();
+
+            List<Integer> level = new ArrayList<>();
+
+            for(int i =0 ; i< size; i++){
+
+                TreeNode temp = q.poll();
+
+                level.add(temp.val);
+
+                if(temp.left!= null ){
+                    q.offer(temp.left);
+                }
+
+                if(temp.right!= null){
+                    q.offer(temp.right);
+                }
+            }
+
+            result.add(level);            
+        }
+
+        return result;
+
+
+        
+    }
+
+    public static void main(String[] Args){
+
+         TreeNode root = new TreeNode(3);
+
+        root.left = new TreeNode(9);
+        root.right = new TreeNode(20);
+
+        root.right.left = new TreeNode(15);
+        root.right.right = new TreeNode(7);
+
+        Solution solution = new Solution();
+
+        List<List<Integer>> result = solution.levelOrder(root);
+
+        System.out.println(result);
+
+
+    }
+}
