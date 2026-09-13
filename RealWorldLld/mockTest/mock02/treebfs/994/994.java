@@ -41,3 +41,66 @@
 //
 // - grid[i][j] is 0, 1, or 2.
 // LEETCODE-PROBLEM-END
+
+import java.util.*;
+
+class Solution{
+
+    public int rotten(int[][] grid){
+
+        int n = grid.length;
+        int m = grid[0].length;
+
+        Queue<int[]> q = new LinkedList<>();
+
+
+        for(int i =0 ; i< n; i++){
+            for(int j =0; j< m; j++){
+
+                if(grid[i][j] == 2){
+
+                   q.add(new int[] {i,j,0});
+
+                }
+
+            }
+        }
+
+        int[] dx ={-1,0,1,0};
+        int[] dy = {0,1,0,-1};
+
+        int ans = 0;
+
+        while(!q.isEmpty()){
+
+            int[] curr = q.poll();
+            int row = curr[0];
+            int col = curr[1];
+            int time = curr[2];
+
+            ans = Math.max(ans,time);
+
+            for(int k =0 ; k< 4; k++){
+                int newX= dx[k] + row;
+                int newY = dy[k] + col;
+
+                if(newX >= 0 && newX < n && newY >= 0 && newY < m && grid [newX][newY] == 1){
+                    grid [newX][newY] = 2 ;
+                    q.add(new int[] {newX, newY, time+1});
+                }
+            }
+
+        }
+
+        return ans;
+    }
+
+    public static void main(String[] args){
+
+        int [][] grid = {{2,1,1}, {1,1,0}, {0,1,1}};
+
+        Solution sol = new Solution();
+
+        System.out.println(sol.rotten(grid));
+    }
+}
