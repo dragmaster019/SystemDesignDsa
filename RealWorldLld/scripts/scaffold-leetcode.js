@@ -15,7 +15,7 @@ const {
   END_MARKER,
   commentStyleForExt,
   buildCommentBlock,
-  fetchProblemByNumber,cd 
+  fetchProblemByNumber
 } = require("./leetcode-lib");
 
 const LANGUAGE_EXTS = [".java", ".cpp", ".js", ".py"];
