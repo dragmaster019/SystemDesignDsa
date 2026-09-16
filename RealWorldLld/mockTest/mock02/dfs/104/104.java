@@ -1,4 +1,4 @@
-// LEETCODE-PROBLEM-START
+///// LEETCODE-PROBLEM-START
 // 104. Maximum Depth of Binary Tree [Easy]
 // https://leetcode.com/problems/maximum-depth-of-binary-tree/
 //
@@ -21,7 +21,7 @@
 // - The number of nodes in the tree is in the range [0, 10^4].
 //
 // - -100 <= Node.val <= 100
-// LEETCODE-PROBLEM-END
+///// LEETCODE-PROBLEM-END
 
 class TreeNode{
 
@@ -29,5 +29,46 @@ class TreeNode{
     TreeNode left;
     TreeNode right;
 
-    
+    TreeNode (){}
+
+    TreeNode(int val){
+        this.val = val;
+    }
+
+    TreeNode(int val,TreeNode left, TreeNode right){
+        this.val = val;    
+        this.left = left;
+        this.right = right;
+    }
+
 }
+
+class Solution{
+
+
+    public int maxDepth(TreeNode root){
+
+        if(root == null) return 0;
+
+        int lh = maxDepth(root.left);
+        int rh = maxDepth(root.right);
+        return Math.max(lh,rh) + 1;
+    }
+    public static void main(String[] args){
+
+        TreeNode root = new TreeNode(3);
+
+        root.left = new TreeNode(9);
+        root.right= new TreeNode(20);
+        root.right.left = new TreeNode(15);
+        root.right.right = new TreeNode(5);
+
+        Solution s = new Solution();
+        System.out.println(s.maxDepth(root));
+    }
+
+
+
+}
+
+
