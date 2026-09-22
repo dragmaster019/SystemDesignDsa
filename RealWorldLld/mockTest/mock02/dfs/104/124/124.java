@@ -26,3 +26,21 @@
 //
 // - -1000 <= Node.val <= 1000
 // LEETCODE-PROBLEM-END
+
+import java.util.*;
+
+class Solution{
+
+    public static void main(String[] args){
+
+        TreeNode root = new TreeNode(-10);
+        root.left = new TreeNode(9);
+        root.right = new TreeNode(20);
+        root.right.left = new TreeNode(15);
+        root.right.right = new TreeNode(7);
+
+        Solution sol = new Solution();
+        int maxPathSum = sol.maxPathSum(root);
+        System.out.println("Maximum Path Sum: " + maxPathSum); // Output: 42
+    }
+}

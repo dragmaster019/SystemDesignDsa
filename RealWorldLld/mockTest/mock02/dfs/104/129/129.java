@@ -39,3 +39,59 @@
 //
 // - The depth of the tree will not exceed 10.
 // LEETCODE-PROBLEM-END
+
+import java.util.*;
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode() {}
+
+    TreeNode(int val) {
+        this.val = val;
+    }
+
+    TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+}
+class Solution { 
+
+    public int LeafSum(TreeNode root){
+
+        if(root == null) return 0;
+
+        return dfs(root, 0);
+    }
+
+    private int dfs(TreeNode root, int sum){
+
+        if(root == null) return 0;
+        
+        sum = sum * 10 + root.val;
+
+        if(root.left == null && root.right == null){
+            return sum;
+        }
+
+        return dfs(root.left, sum) + dfs(root.right, sum);
+
+
+
+    }
+    public static void main(String[] args){
+        TreeNode root = new TreeNode(4);
+        root.left = new TreeNode(9);
+        root.right = new TreeNode(0);
+        root.left.left = new TreeNode(5);
+        root.left.right = new TreeNode(1);
+
+        Solution sol = new Solution();
+
+        System.out.println(sol.LeafSum(root)); // Output: 1026
+    }
+}
