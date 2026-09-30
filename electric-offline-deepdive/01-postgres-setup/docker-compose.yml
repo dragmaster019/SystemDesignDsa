@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:14-alpine
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: fintech
+    ports: ["5432:5432"]
+    command: ["postgres", "-c", "wal_level=logical", "-c", "max_replication_slots=10", "-c", "max_wal_senders=10"]
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+  electric:
+    image: electricsql/electric:latest
+    environment:
+      DATABASE_URL: "postgresql://postgres:password@postgres:5432/fintech"
+      ELECTRIC_PORT: "5133"
+    ports: ["5133:5133"]
+    depends_on: [postgres]
+volumes:
+  pgdata: {}
