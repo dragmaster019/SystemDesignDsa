@@ -17,7 +17,6 @@ nothing = nil    # null in Java
 IO.puts("name=#{name} age=#{age} price=#{price} ok=#{ok} nothing=#{inspect(nothing)}")
 
 # --- constants by convention (UPPERCASE, still rebindable so don't rely) ---
-@pi = 3.14  # NOTE: @ only works inside modules. Here just use normal var:
 pi = 3.14
 IO.puts("pi = #{pi}")
 
@@ -26,12 +25,21 @@ IO.puts("hello")              # prints with newline, like System.out.println
 IO.inspect([1, 2, 3], label: "my list")  # debug print with label, use everywhere
 
 # --- input ---
-# Uncomment to try interactive input:
-# input = IO.gets("type your name: ") |> String.trim()
-# IO.puts("hi #{input}")
+#Uncomment to try interactive input:
+ #input = IO.gets("type your name: ") |> String.trim()
+ #IO.puts("hi #{input}")
 
 # --- string interpolation + concat ---
 first = "sar"
 last = "thak"
 IO.puts("#{first} #{last}")       # interpolation, like f-string
-IO.puts(first <> " " <> last)     # <> joins strings (like + in Java)
+IO.puts(first <> "" <> last)     # <> joins strings (like + in Java)
+
+fv = 5
+sv = 10
+
+IO.puts("the value of sum is #{fv + sv}")
+
+
+input = IO.gets("I am learning elixer through meta")
+IO.puts("Lets begin #{input}")

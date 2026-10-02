@@ -25,3 +25,7 @@ IO.puts("\nTASK 4 (fintech): fn transfer(from_map, to_map, amt) -> {:ok, {new_fr
 #
 # users = [%{id: "a", bal: 100}, %{id: "b", bal: 250}]
 # IO.puts("total=#{Enum.reduce(users, 0, fn u, acc -> acc + u.bal end)}")
+
+#lets do it
+
+
