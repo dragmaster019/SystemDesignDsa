@@ -93,3 +93,6 @@ IO.puts("pop front=#{f}")
 {{:value, r}, dq} = :queue.out_r(dq)  # pop rear
 IO.puts("pop rear=#{r}")
 IO.puts("empty?=#{:queue.is_empty(dq)}")
+
+
+

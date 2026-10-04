@@ -43,3 +43,18 @@ IO.puts("the value of sum is #{fv + sv}")
 
 input = IO.gets("I am learning elixer through meta")
 IO.puts("Lets begin #{input}")
+
+
+var1= "sarthak"
+var2 = "has eaten"
+
+IO.puts(var1 <> " " <> var2)
+
+name = "sarkman"
+
+IO.puts(" the name is #{name}")
+
+input = IO.gets("choose the name ")
+
+IO.puts("hi #{input}")
+
