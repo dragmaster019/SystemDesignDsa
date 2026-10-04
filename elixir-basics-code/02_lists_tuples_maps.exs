@@ -50,3 +50,49 @@ IO.puts("\n--- KEYWORD LIST (options, like kwargs) ---")
 opts = [from: "a", to: "b", amount: 100]
 IO.inspect(opts, label: "opts")
 IO.puts("amount=#{opts[:amount]}")
+
+IO.puts("\n--- SET via MapSet (no dupes, like HashSet) ---")
+s = MapSet.new([1, 2, 2, 3])
+IO.inspect(s, label: "set (2 once)")
+s = MapSet.put(s, 4)
+IO.inspect(s, label: "put 4")
+IO.puts("has 2? #{MapSet.member?(s, 2)}")
+s = MapSet.delete(s, 2)
+IO.inspect(s, label: "delete 2")
+IO.inspect(MapSet.to_list(s), label: "set->list (loop it)")
+IO.puts("size=#{MapSet.size(s)}")
+Enum.each(s, fn x -> IO.puts("set elem=#{x}") end)
+
+IO.puts("\n--- STACK via List (top = head) ---")
+stack = []
+stack = [10 | stack]   # push 10
+stack = [20 | stack]   # push 20
+IO.inspect(stack, label: "stack after pushes")
+[top | rest] = stack   # pop
+IO.puts("popped=#{top} remaining=#{inspect(rest)}")
+IO.puts("peek=#{hd(rest)} empty?=#{stack == []}")
+
+IO.puts("\n--- QUEUE via :queue (FIFO, like LinkedList queue) ---")
+q = :queue.new()
+q = :queue.in(1, q)    # enqueue 1
+q = :queue.in(2, q)    # enqueue 2
+q = :queue.in(3, q)    # enqueue 3
+IO.inspect(:queue.to_list(q), label: "queue list")
+{{:value, front}, q} = :queue.out(q)  # dequeue front
+IO.puts("dequeued=#{front}")
+IO.inspect(:queue.to_list(q), label: "after 1 dequeue")
+IO.puts("len=#{:queue.len(q)} empty?=#{:queue.is_empty(q)}")
+
+IO.puts("\n--- DEQUE (double-ended) via :queue ---")
+dq = :queue.new()
+dq = :queue.in(10, dq)      # push rear
+dq = :queue.in_r(5, dq)     # push front
+IO.inspect(:queue.to_list(dq), label: "deque")
+{{:value, f}, dq} = :queue.out(dq)    # pop front
+IO.puts("pop front=#{f}")
+{{:value, r}, dq} = :queue.out_r(dq)  # pop rear
+IO.puts("pop rear=#{r}")
+IO.puts("empty?=#{:queue.is_empty(dq)}")
+
+
+
