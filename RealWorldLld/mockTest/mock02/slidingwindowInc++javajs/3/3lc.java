@@ -22,47 +22,87 @@
 // 0 <= s.length <= 105
 // s consists of English letters, digits, symbols and spaces.
 
+// import java.util.*;
+// class Main{
+
+//     public static int solution(String s){
+//         int n = s.length();
+
+//         HashMap<Character, Integer> mp = new HashMap<>();
+
+//         int windowEnd = 0;
+
+//         int maxi = 0;
+
+//         for(int windowStart = 0 ; windowStart <n ; windowStart++){
+
+//             mp.put(s.charAt(windowStart),mp.getOrDefault(s.charAt(windowStart),0)+1);
+
+//             while(mp.get(s.charAt(windowStart)) > 1){
+
+//                 mp.put(s.charAt(windowEnd),mp.get(s.charAt(windowEnd))-1);
+
+//                 windowEnd++;
+//             }
+
+//             maxi = Math.max(maxi, windowStart - windowEnd + 1);
+
+
+//         }
+
+//         return maxi;
+
+
+
+
+//     }
+
+//     public static void main(String[] args){
+
+//         String s = "abcabcbb";
+//         System.out.println(Main.solution(s));
+
+
+
+//     }
+// }
+
 import java.util.*;
-class Main{
 
-    public static int solution(String s){
-        int n = s.length();
+class Solution{
 
-        HashMap<Character, Integer> mp = new HashMap<>();
+    public int longestsubrepeat(String s){
 
-        int windowEnd = 0;
+        HashMap<Character,Integer> mp = new HashMap<>();
 
-        int maxi = 0;
+        int result = 0;
 
-        for(int windowStart = 0 ; windowStart <n ; windowStart++){
+        int windowStart =0;
 
-            mp.put(s.charAt(windowStart),mp.getOrDefault(s.charAt(windowStart),0)+1);
+        for(int windowEnd =0 ; windowEnd< s.length(); windowEnd++){
+            mp.put(s.charAt(windowEnd), mp.getOrDefault(s.charAt(windowEnd),0)+ 1);
 
-            while(mp.get(s.charAt(windowStart)) > 1){
+            while(mp.get(s.charAt(windowEnd)) > 1){
 
-                mp.put(s.charAt(windowEnd),mp.get(s.charAt(windowEnd))-1);
+                mp.put(s.charAt(windowEnd), mp.getOrDefault(s.charAt(windowEnd), 0) - 1);
 
-                windowEnd++;
+                windowStart++;
+
+
             }
 
-            maxi = Math.max(maxi, windowStart - windowEnd + 1);
-
-
+             result = Math.max(result, windowEnd - windowStart + 1);
         }
 
-        return maxi;
-
-
-
-
+        return result;
     }
 
-    public static void main(String[] args){
+    public static void main(String args[]){
 
         String s = "abcabcbb";
-        System.out.println(Main.solution(s));
+        Solution solution = new Solution();
 
-
-
+        System.out.println(solution.longestsubrepeat(s));
     }
+
 }
